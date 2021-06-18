@@ -1,0 +1,49 @@
+body {
+    background-color: #bfc6d2;
+    font-family: 'Baloo Tammudu 1', cursive;
+}
+
+.container {
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 20px 20px;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    border-radius: 10px;
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns {
+    margin-top: 25px;
+    margin-right: 25px;
+    padding: 5px 10px;
+}
+
+.refresh-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+#reload-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    transition: 0.3s;
+}
+
+#reload-icon:hover {
+    height: 2rem;
+    width: 2rem;
+}

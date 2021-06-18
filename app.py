@@ -42,7 +42,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 VALID_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 def allowed_file(filename):
-	return '.' in filename and filename.rsplit('.', 1)[1].lower() in VALID_EXTENSIONS
+  return '.' in filename and filename.rsplit('.', 1)[1].lower() in VALID_EXTENSIONS
 
 @app.route('/',methods=['GET'])
 def index():
@@ -52,7 +52,7 @@ def index():
 def upload_image():
   file = request.files['file']
   if file and allowed_file(file.filename):
-    filename = file.filename
+    filename = 'input.jpg'
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     category=request.values.get('category')
     predict(filename,category)
@@ -63,8 +63,7 @@ def upload_image():
 
 @app.route('/display/<filename>')
 def display_image(filename):
-	
-	return redirect(url_for('static', filename='results/' + filename), code=301)
+  return redirect(url_for('static', filename='results/' + filename), code=301)
 
 def predict(filename,category):
     model = tf.keras.models.load_model(f'other_files/{category}_model.model',
