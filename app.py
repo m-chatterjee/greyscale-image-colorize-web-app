@@ -52,10 +52,9 @@ def index():
 def upload_image():
   file = request.files['file']
   if file and allowed_file(file.filename):
-    filename = 'input.jpg'
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'input.jpg'))
     category=request.values.get('category')
-    predict(filename,category)
+    predict(category)
     return render_template('index.html',isGenerated=True)
   else:
     flash('Allowed image types are -> png, jpg, jpeg, gif')
@@ -65,12 +64,12 @@ def upload_image():
 def display_image(filename):
   return redirect(url_for('static', filename='results/' + filename), code=301)
 
-def predict(filename,category):
-    model = tf.keras.models.load_model(f'other_files/{category}_model.model',
+def predict(category):
+    model = tf.keras.models.load_model(f'models/{category}_model.model',
                                     custom_objects=None,
                                     compile=True)
 
-    img_to_process=img_to_array(load_img('static/uploads/'+filename))
+    img_to_process=img_to_array(load_img('static/uploads/'+'input.jpg'))
     img_to_process = resize(img_to_process, (224,224), anti_aliasing=True)
     img_to_process*= 1.0/255
     lab = rgb2lab(img_to_process)
@@ -86,4 +85,4 @@ def predict(filename,category):
     imsave('static/results/result.jpg', lab2rgb(result))
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(debug=True,host="192.168.0.102",port=5000)
