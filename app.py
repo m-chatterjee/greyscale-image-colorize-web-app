@@ -13,7 +13,6 @@ from tensorflow.keras.applications.vgg16 import VGG16
 vgg16 = VGG16()
 vgg_up_to_19th = Sequential() 
 
-
 for i, layer in enumerate(vgg16.layers):
     if i<19:          #Only up to 19th layer to include feature extraction only
       vgg_up_to_19th.add(layer)
