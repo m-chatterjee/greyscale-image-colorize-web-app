@@ -21,9 +21,6 @@ window.addEventListener("load", () => {
 
         });
 
-        // splash.fromImage("../static/college logo.jpg", 5000, {
-
-        // });
     }
 });
 
