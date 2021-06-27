@@ -32,7 +32,7 @@ for layer in vgg_up_to_19th.layers:
   layer.trainable=False   #We don't want to train these layers again, so False. 
 
   
-app=Flask(__name__)
+app=Flask(__name__,static_url_path='/static')
 
 UPLOAD_FOLDER = 'static/uploads/'
 app.secret_key = "my_key"
@@ -65,7 +65,7 @@ def display_image(filename):
   return redirect(url_for('static', filename='results/' + filename), code=301)
 
 def predict(category):
-    model = tf.keras.models.load_model(f'models/{category}_model.model',
+    model = tf.keras.models.load_model('models/{}_model.model'.format(category),
                                     custom_objects=None,
                                     compile=True)
 
@@ -82,7 +82,8 @@ def predict(category):
     result = np.zeros((224, 224, 3))
     result[:,:,0] = l
     result[:,:,1:] = ab
-    imsave('static/results/result.jpg', lab2rgb(result))
+    rgb_result_array=lab2rgb(result)
+    imsave('static/results/result.jpg',rgb_result_array)
 
 if __name__=='__main__':
     app.run(debug=True,host="0.0.0.0",port=80)
