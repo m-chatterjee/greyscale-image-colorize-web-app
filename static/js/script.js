@@ -1,3 +1,4 @@
+// generating the output image viewer modal
 function modalResultShow() {
     if (isGenerated == 'true') {
         var myModal = new bootstrap.Modal(document.getElementById('result_image_modal'), {
@@ -15,6 +16,7 @@ window.addEventListener("load", () => {
     if (isGenerated == 'true') {
         modalResultShow();
     } else {
+        // Splash screen 
         var splash = new Splash();
 
         splash.fromText("IMAGE COLORIZER App by\n Mainak Chatterjee\nSwarnadip Mukherjee\nNilanjan Mandal\nSahin Aktar\n \n GCETTB", 4000, {
@@ -24,6 +26,7 @@ window.addEventListener("load", () => {
     }
 });
 
+// this function runs when the form is submitted
 function submitForm() {
     file = document.getElementById("formFileSm")
     category = document.getElementById("category")
