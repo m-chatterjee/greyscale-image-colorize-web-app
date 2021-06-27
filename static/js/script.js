@@ -14,6 +14,16 @@ function modalResultShow() {
 window.addEventListener("load", () => {
     if (isGenerated == 'true') {
         modalResultShow();
+    } else {
+        var splash = new Splash();
+
+        splash.fromText("IMAGE COLORIZER App by\n Mainak Chatterjee\nSwarnadip Mukherjee\nNilanjan Mandal\nSahin Aktar\n \n GCETTB", 4000, {
+
+        });
+
+        // splash.fromImage("logo.jpg", 5000, {
+
+        // });
     }
 });
 
@@ -34,30 +44,3 @@ function submitForm() {
         }
     }
 }
-
-// let intro = document.querySelector('.intro');
-// let logo = document.querySelector('.logo-header');
-// let logoSpan = document.querySelectorAll('.logo');
-
-// window.addEventListener('load', () => {
-//     setTimeout(() => {
-//         logoSpan.forEach((span, idx) => {
-//             setTimeout(() => {
-//                 span.classList.add('active');
-//             }, (idx + 1) * 400)
-//         });
-
-//         setTimeout(() => {
-//             logoSpan.forEach((span, idx) => {
-//                 setTimeout(() => {
-//                     span.classList.remove('active')
-//                     span.classList.add('fade');
-//                 }, (idx + 1) * 50)
-//             });
-//         }, 2000)
-
-//         setTimeout(() => {
-//             intro.style.top = '-100vh'
-//         }, 2300)
-//     })
-// })

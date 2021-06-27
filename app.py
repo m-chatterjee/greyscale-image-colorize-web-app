@@ -86,4 +86,4 @@ def predict(category):
     imsave('static/results/result.jpg',rgb_result_array)
 
 if __name__=='__main__':
-    app.run(debug=True,host="0.0.0.0",port=80)
+    app.run(debug=True,host="127.0.0.1",port=2000)
