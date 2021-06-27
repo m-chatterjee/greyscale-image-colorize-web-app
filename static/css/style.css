@@ -1,6 +1,10 @@
 body {
-    background-color: #bfc6d2;
-    font-family: 'Baloo Tammudu 1', cursive;
+    font-family: 'Comfortaa', cursive;
+    background: linear-gradient(238.72deg, #FFB864 0%, #006C4C 100%), radial-gradient(100% 224.43% at 0% 0%, #FCC482 0%, #002E74 100%), linear-gradient(121.28deg, #FFEAB6 0%, #00563C 100%), linear-gradient(229.79deg, #7534FF 0%, #248900 94.19%), radial-gradient(56.26% 101.79% at 50% 0%, #8F00FF 0%, #493500 100%), linear-gradient(65.05deg, #6F0072 0%, #FFD600 100%);
+    background-blend-mode: overlay, screen, color-burn, hard-light, screen, normal;
+    background-blend-mode: overlay, hard-light, normal;
+    background-repeat: repeat-y;
+    text-align: center;
 }
 
 .container {
@@ -9,6 +13,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .card {
@@ -16,6 +21,9 @@ body {
     padding: 20px 20px;
     box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
     border-radius: 10px;
+    background: radial-gradient(90% 100% at 50% 0%, #D7D7D7 0%, #000000 100%), radial-gradient(90% 100% at 50% 0%, #FF0000 0%, #000000 100%), radial-gradient(110% 215% at 100% 0%, #000AFF 0%, #70FF00 100%), linear-gradient(230deg, #7EFF41 0%, #05FF00 100%), linear-gradient(130deg, #D50000 0%, #7856FF 100%);
+    background-blend-mode: overlay, difference, difference, exclusion, normal;
+    color: #ffffff;
 }
 
 .image-container {
@@ -29,6 +37,7 @@ body {
     margin-top: 25px;
     margin-right: 25px;
     padding: 5px 10px;
+    border-radius: 15px;
 }
 
 .refresh-container {
@@ -46,4 +55,9 @@ body {
 #reload-icon:hover {
     height: 2rem;
     width: 2rem;
+}
+
+#result_image_modal {
+    transition: 0.7s;
+    transition-timing-function: ease-out;
 }
